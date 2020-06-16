@@ -10,6 +10,8 @@ services:
     #   - ./sql/:/docker-entrypoint-initdb.d/
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD="true"
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_PASSWORD=root
     ports:
       - '33306:3306'
     expose:
