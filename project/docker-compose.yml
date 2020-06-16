@@ -2,13 +2,15 @@ version: '3.3'
 
 services:
   travle-diary-mysql-server-project:
-    image: mysql
+    image: travle-diary-mysql-server-project
     container_name: travle-diary-mysql-server-project
+    command: mysqld
+    restart: always
+    # volumes:
+    #   - ./sql/:/docker-entrypoint-initdb.d/
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD="true"
     ports:
-      - '20022:22'
-      - '20080:80'
-      - '28080:8080'
+      - '33306:3306'
     expose:
-      - '20022'
-      - '20080'
-      - '28080'
+      - '33306'

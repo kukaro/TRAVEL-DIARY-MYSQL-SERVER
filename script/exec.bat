@@ -1,0 +1,1 @@
+docker exec -it travle-diary-mysql-server-project /bin/bash
