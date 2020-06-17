@@ -1,6 +1,7 @@
 FROM mysql:5.7
 MAINTAINER kukaro <justkukaro@naver.com>
 
+ENV TZ=Asia/Seoul
 RUN apt-get update && apt-get -y install net-tools
 RUN apt-get -y install iputils-ping
 RUN rm /etc/mysql/conf.d/mysql.cnf

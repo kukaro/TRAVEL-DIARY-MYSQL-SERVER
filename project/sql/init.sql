@@ -8,12 +8,14 @@ CREATE TABLE user(
     email VARCHAR(100) PRIMARY KEY,
     name VARCHAR (100) NOT NULL,
     age INT NOT NULL,
-    birth_date VARCHAR (10) NOT NULL,
-    password VARCHAR(100) NOT NULL
+    birth_date DATETIME NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    created_date DATETIME NOT NULL,
+    updated_date DATETIME NOT NULL
 );
 
 CREATE TABLE picture(
-    id INT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     owner_email VARCHAR(100) NOT NULL,
     location VARCHAR(100) NOT NULL,
     path VARCHAR(100) NOT NULL
