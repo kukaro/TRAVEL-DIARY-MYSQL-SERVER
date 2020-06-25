@@ -18,7 +18,9 @@ CREATE TABLE picture(
     id INT AUTO_INCREMENT PRIMARY KEY,
     owner_email VARCHAR(100) NOT NULL,
     location VARCHAR(100) NOT NULL,
-    path VARCHAR(100) NOT NULL
+    path VARCHAR(100) NOT NULL,
+    created_date DATETIME NOT NULL,
+    updated_date DATETIME NOT NULL
 );
 
 ALTER TABLE picture ADD CONSTRAINT fk_picture_owneremail_user_email 

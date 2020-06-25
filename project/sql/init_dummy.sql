@@ -6,6 +6,6 @@ INSERT INTO user(email, name, age, birth_date, password, created_date, updated_d
 INSERT INTO user(email, name, age, birth_date, password, created_date, updated_date) values('didi@didi.di', '길동', 42, '2008-01-03 00:00:01', '3456', '2008-01-01 00:00:01', '2008-01-01 00:00:01');
 INSERT INTO user(email, name, age, birth_date, password, created_date, updated_date) values('dydy@dydy.dy', '동길', 53, '2008-01-04 00:00:01', '4567', '2008-01-01 00:00:01', '2008-01-01 00:00:01');
 
-INSERT INTO picture(owner_email, location, path) values('dudu@dudu.du', '아이티', 'http://google.com');
-INSERT INTO picture(owner_email, location, path) values('dudu@dudu.du', '소말리아', 'http://google2.com');
-INSERT INTO picture(owner_email, location, path) values('dada@dada.da', '르완다', 'http://naver.com');
+INSERT INTO picture(owner_email, location, path, created_date, updated_date) values('dudu@dudu.du', '아이티', 'http://google.com', '2008-01-01 00:00:01', '2008-01-01 00:00:01');
+INSERT INTO picture(owner_email, location, path, created_date, updated_date) values('dudu@dudu.du', '소말리아', 'http://google2.com', '2008-01-01 00:00:01', '2008-01-01 00:00:01');
+INSERT INTO picture(owner_email, location, path, created_date, updated_date) values('dada@dada.da', '르완다', 'http://naver.com', '2008-01-01 00:00:01', '2008-01-01 00:00:01');
