@@ -75,23 +75,18 @@ ALTER TABLE picture_usergroup ADD CONSTRAINT fk_pictureusergroup_picture
 ALTER TABLE picture_usergroup ADD CONSTRAINT fk_pictureusergroup_usergroup
     FOREIGN KEY (usergroup_id) REFERENCES usergroup(id);
 
-CREATE TABLE comment(
-    id INT PRIMARY KEY,
+CREATE TABLE post(
+    id INT AUTO_INCREMENT PRIMARY KEY,
     owner_email VARCHAR(100) NOT NULL,
-    contents VARCHAR(1000) NOT NULL,
-    created_data VARCHAR(100) NOT NULL,
-    last_modified_date VARCHAR(100) NOT NULL,
-    parents_comment_id INT DEFAULT NULL
+    title VARCHAR(255) NOT NULL,
+    contents TEXT NOT NULL,
+    parents_post_id INT DEFAULT NULL,
+    created_date DATETIME NOT NULL,
+    updated_date DATETIME NOT NULL
 );
 
-CREATE TABLE post(
-    id INT PRIMARY KEY,
-    owner_email VARCHAR(100) NOT NULL,
-    contents TEXT NOT NULL,
-    created_data VARCHAR(100) NOT NULL,
-    last_modified_date VARCHAR(100) NOT NULL,
-    parents_post_id INT DEFAULT NULL
-);
+ALTER TABLE post ADD CONSTRAINT fk_post_owneremail_user_email
+    FOREIGN KEY (owner_email) REFERENCES user(email);
 
 CREATE TABLE post_picture(
     id INT PRIMARY KEY,
@@ -105,13 +100,13 @@ ALTER TABLE post_picture ADD CONSTRAINT fk_postpicturet_post
 ALTER TABLE post_picture ADD CONSTRAINT fk_postpicture_picture
     FOREIGN KEY (picture_id) REFERENCES picture(id);
 
-CREATE TABLE post_comment(
-    id INT PRIMARY KEY,
-    post_id INT NOT NULL,
-    comment_id INT NOT NULL
-);
-ALTER TABLE post_comment ADD CONSTRAINT fk_postcomment_post
-    FOREIGN KEY (post_id) REFERENCES post(id);
 
-ALTER TABLE post_comment ADD CONSTRAINT fk_postcomment_comment
-    FOREIGN KEY (comment_id) REFERENCES comment(id);
+CREATE TABLE comment(
+    id INT PRIMARY KEY,
+    owner_email VARCHAR(100) NOT NULL,
+    contents VARCHAR(1000) NOT NULL,
+    created_data VARCHAR(100) NOT NULL,
+    last_modified_date VARCHAR(100) NOT NULL,
+    parents_comment_id INT DEFAULT NULL
+);
+

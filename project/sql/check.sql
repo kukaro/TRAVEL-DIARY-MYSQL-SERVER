@@ -6,3 +6,6 @@
 
 -- genral 설정 확인
 -- show variables like 'general%';
+
+-- 외래키 확인
+-- select * from information_schema.table_constraints where constraint_schema = 'td_db';
