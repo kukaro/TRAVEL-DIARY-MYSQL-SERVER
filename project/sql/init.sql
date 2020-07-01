@@ -105,8 +105,8 @@ CREATE TABLE comment(
     id INT PRIMARY KEY,
     owner_email VARCHAR(100) NOT NULL,
     contents VARCHAR(1000) NOT NULL,
-    created_data VARCHAR(100) NOT NULL,
-    last_modified_date VARCHAR(100) NOT NULL,
-    parents_comment_id INT DEFAULT NULL
+    parents_comment_id INT DEFAULT NULL,
+    created_date DATETIME NOT NULL,
+    updated_date DATETIME NOT NULL
 );
 
