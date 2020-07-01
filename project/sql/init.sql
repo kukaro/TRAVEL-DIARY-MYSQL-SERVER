@@ -102,11 +102,14 @@ ALTER TABLE post_picture ADD CONSTRAINT fk_postpicture_picture
 
 
 CREATE TABLE comment(
-    id INT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     owner_email VARCHAR(100) NOT NULL,
     contents VARCHAR(1000) NOT NULL,
     parents_comment_id INT DEFAULT NULL,
     created_date DATETIME NOT NULL,
     updated_date DATETIME NOT NULL
 );
+
+ALTER TABLE comment ADD CONSTRAINT fk_comment_owneremail_user_email
+    FOREIGN KEY (owner_email) REFERENCES user(email);
 

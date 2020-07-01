@@ -19,3 +19,6 @@ INSERT INTO picture(owner_email, location, path, created_date, updated_date)
 
 INSERT INTO post(owner_email, title, contents, created_date, updated_date) 
     values('dudu@dudu.du', '이렇게 맛있는 빵집은 어디에 있나?', '북한에 있다.', '2008-01-01 00:00:01', '2008-01-01 00:00:01');
+
+INSERT INTO comment(owner_email, contents, created_date, updated_date) 
+    values('dudu@dudu.du', '이렇게 맛있는 댓글은 어디에 있나?', '2008-01-01 00:00:01', '2008-01-01 00:00:01');
