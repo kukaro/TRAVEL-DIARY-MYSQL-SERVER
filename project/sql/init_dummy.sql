@@ -31,6 +31,26 @@ INSERT INTO post(owner_email, title, contents, created_date, updated_date)
     values('dudu@dudu.du', '사람은 책을 만들고', '책은 벌레가 먹는다', '2012-01-11 00:00:01', '2012-01-11 00:00:01');
 INSERT INTO post(owner_email, title, contents, created_date, updated_date)
     values('dudu@dudu.du', '책은 사람을 만들고', '사람은 술을 먹는다', '2012-01-12 00:00:01', '2012-01-12 00:00:01');
+INSERT INTO post(owner_email, title, contents, created_date, updated_date)
+    values('dudu@dudu.du', '애국가 본 사람 있어?', '동해 물과 백두산이 마르고 닳도록
+하느님이 보우하사 우리나라 만세.
+무궁화 삼천리 화려 강산
+대한 사람, 대한으로 길이 보전하세.
+
+남산 위에 저 소나무, 철갑을 두른 듯
+바람 서리 불변함은 우리 기상일세.
+무궁화 삼천리 화려 강산
+대한 사람, 대한으로 길이 보전하세.
+
+가을 하늘 공활한데 높고 구름 없이
+밝은 달은 우리 가슴 일편단심일세.
+무궁화 삼천리 화려 강산
+대한 사람, 대한으로 길이 보전하세.
+
+이 기상과 이 맘으로 충성을 다하여
+괴로우나 즐거우나 나라 사랑하세.
+무궁화 삼천리 화려 강산
+대한 사람, 대한으로 길이 보전하세.', '2012-01-12 00:00:01', '2012-01-12 00:00:01');
 INSERT INTO post(owner_email, title, contents, created_date, updated_date) 
     values('dudu@dudu.du', '이렇게 맛있는 빵집은 어디에 있나?', '북한에 있다.', '2008-01-01 00:00:01', '2008-01-01 00:00:01');
 INSERT INTO post(owner_email, title, contents, created_date, updated_date)
