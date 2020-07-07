@@ -18,6 +18,8 @@ INSERT INTO picture(owner_email, location, path, created_date, updated_date)
     values('dada@dada.da', '르완다', 'http://naver.com', '2008-01-01 00:00:01', '2008-01-01 00:00:01');
 
 INSERT INTO post(owner_email, title, contents, created_date, updated_date)
+    values('dudu@dudu.du', '갑이야', '을이야', '2006-02-01 00:00:01', '2006-02-01 00:00:01');
+INSERT INTO post(owner_email, title, contents, created_date, updated_date)
     values('dudu@dudu.du', '이번엔 안 봐준다', '봐줘,', '2020-02-01 00:00:01', '2020-02-01 00:00:01');
 INSERT INTO post(owner_email, title, contents, created_date, updated_date)
     values('dudu@dudu.du', '이번 한번만 봐준다', '두번 봐준다.', '2020-01-31 00:00:01', '2020-01-31 00:00:01');
@@ -25,6 +27,10 @@ INSERT INTO post(owner_email, title, contents, created_date, updated_date)
     values('dudu@dudu.du', '이번 두번만 봐준다', '세번 봐준다.', '2020-01-21 00:00:01', '2020-01-21 00:00:01');
 INSERT INTO post(owner_email, title, contents, created_date, updated_date)
     values('dudu@dudu.du', '이번 세번만 봐준다', '네번 봐준다.', '2020-01-11 00:00:01', '2020-01-11 00:00:01');
+INSERT INTO post(owner_email, title, contents, created_date, updated_date)
+    values('dudu@dudu.du', '사람은 책을 만들고', '책은 벌레가 먹는다', '2012-01-11 00:00:01', '2012-01-11 00:00:01');
+INSERT INTO post(owner_email, title, contents, created_date, updated_date)
+    values('dudu@dudu.du', '책은 사람을 만들고', '사람은 술을 먹는다', '2012-01-12 00:00:01', '2012-01-12 00:00:01');
 INSERT INTO post(owner_email, title, contents, created_date, updated_date) 
     values('dudu@dudu.du', '이렇게 맛있는 빵집은 어디에 있나?', '북한에 있다.', '2008-01-01 00:00:01', '2008-01-01 00:00:01');
 INSERT INTO post(owner_email, title, contents, created_date, updated_date)
