@@ -1,13 +1,13 @@
 version: '3.3'
 
 services:
-  travle-diary-mysql-server-project:
-    image: travle-diary-mysql-server-project
-    container_name: travle-diary-mysql-server-project
+  travel-diary-mysql-server-project:
+    image: travel-diary-mysql-server-project
+    container_name: travel-diary-mysql-server-project
     command: mysqld
     restart: always
-    # volumes:
-    #   - ./sql/:/docker-entrypoint-initdb.d/
+    volumes:
+      - ./shared/:/root/shared/
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD="true"
       - MYSQL_ROOT_PASSWORD=root

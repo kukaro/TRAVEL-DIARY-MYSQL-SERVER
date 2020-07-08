@@ -112,4 +112,3 @@ CREATE TABLE comment(
 
 ALTER TABLE comment ADD CONSTRAINT fk_comment_owneremail_user_email
     FOREIGN KEY (owner_email) REFERENCES user(email);
-

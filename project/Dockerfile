@@ -10,9 +10,11 @@ RUN rm /etc/mysql/conf.d/mysql.cnf
 RUN echo "[client]\ndefault-character-set = utf8\n\n[mysqld]\ngeneral_log=ON\ngeneral_log_file=/var/lib/mysql/global.log\ncharacter-set-client-handshake=FALSE init_connect=\"SET collation_connection = utf8_general_ci\"\ninit_connect=\"SET NAMES utf8\"\ncharacter-set-server = utf8\ncollation-server = utf8_general_ci\n\n[mysqldump]\ndefault-character-set = utf8\n\n[mysql]\ndefault-character-set = utf8\n" > /etc/mysql/conf.d/mysql.cnf
 
 ADD ./sql /docker-entrypoint-initdb.d
-ADD ./script /root/script
+ADD ./script /etc/script
 RUN touch ~/.vimrc
 RUN echo "set nu\n" >> ~/.vimrc
+RUN mkdir /root/shared
+RUN /etc/script/get_ip.sh
 
 EXPOSE 3306
 
