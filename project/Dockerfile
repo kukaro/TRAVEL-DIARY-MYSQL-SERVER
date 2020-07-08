@@ -14,7 +14,6 @@ ADD ./script /etc/script
 RUN touch ~/.vimrc
 RUN echo "set nu\n" >> ~/.vimrc
 RUN mkdir /root/shared
-RUN /etc/script/get_ip.sh
 
 EXPOSE 3306
 
