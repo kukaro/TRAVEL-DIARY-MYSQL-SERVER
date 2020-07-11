@@ -60,3 +60,14 @@ INSERT INTO post(owner_email, title, contents, created_date, updated_date)
 
 INSERT INTO comment(owner_email, contents, created_date, updated_date) 
     values('dudu@dudu.du', '이렇게 맛있는 댓글은 어디에 있나?', '2008-01-01 00:00:01', '2008-01-01 00:00:01');
+    
+    
+INSERT INTO post(owner_email, title, contents, created_date, updated_date) 
+    values('dada@dada.da', '먹지 마세요', '피부에 양보하세요', '2008-01-01 00:00:01', '2008-01-01 00:00:01');
+INSERT INTO post(owner_email, title, contents, created_date, updated_date)
+    values('dada@dada.da', '아프리카 원주민의 일기', '배가고팠다. 밥을 먹었다.', '2008-01-01 00:00:01', '2008-01-01 00:00:01');
+INSERT INTO post(owner_email, title, contents, created_date, updated_date)
+    values('dada@dada.da', '피자나라 치킨공주', '치킨나라 피자공주', '2008-01-01 00:00:01', '2008-01-01 00:00:01');
+
+INSERT INTO comment(owner_email, contents, created_date, updated_date) 
+    values('dada@dada.da', '놀면서 돈버는 법', '2008-01-01 00:00:01', '2008-01-01 00:00:01');
