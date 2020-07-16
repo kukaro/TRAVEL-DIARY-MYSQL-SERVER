@@ -89,7 +89,7 @@ ALTER TABLE post ADD CONSTRAINT fk_post_owneremail_user_email
     FOREIGN KEY (owner_email) REFERENCES user(email);
 
 CREATE TABLE post_picture(
-    id INT AUTO_INCREMENT PRIMARY KEY ,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     post_id INT NOT NULL,
     picture_id INT NOT NULL
 );
@@ -100,6 +100,7 @@ ALTER TABLE post_picture ADD CONSTRAINT fk_postpicturet_post
 ALTER TABLE post_picture ADD CONSTRAINT fk_postpicture_picture
     FOREIGN KEY (picture_id) REFERENCES picture(id);
 
+ALTER TABLE post_picture ADD UNIQUE uq_postpicture (post_id , picture_id);
 
 CREATE TABLE comment(
     id INT AUTO_INCREMENT PRIMARY KEY,
