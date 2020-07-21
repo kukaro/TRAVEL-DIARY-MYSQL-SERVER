@@ -95,10 +95,10 @@ CREATE TABLE post_picture(
 );
 
 ALTER TABLE post_picture ADD CONSTRAINT fk_postpicturet_post
-    FOREIGN KEY (post_id) REFERENCES post(id);
+    FOREIGN KEY (post_id) REFERENCES post(id) ON DELETE CASCADE;
 
 ALTER TABLE post_picture ADD CONSTRAINT fk_postpicture_picture
-    FOREIGN KEY (picture_id) REFERENCES picture(id);
+    FOREIGN KEY (picture_id) REFERENCES picture(id) ON DELETE CASCADE;
 
 ALTER TABLE post_picture ADD UNIQUE uq_postpicture (post_id , picture_id);
 
