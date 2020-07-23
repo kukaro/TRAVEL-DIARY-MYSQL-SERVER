@@ -1,1 +1,1 @@
-cat /var/lib/mysql/global.log | tail -n 20
+cat /var/lib/mysql/global.log | tail -n 50
