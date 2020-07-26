@@ -58,10 +58,22 @@ INSERT INTO post(owner_email, title, contents, created_date, updated_date)
 INSERT INTO post(owner_email, title, contents, created_date, updated_date)
     values('dudu@dudu.du', '백수의 왕은?', '사자였던거 같은데', '2008-01-01 00:00:01', '2008-01-01 00:00:01');
 
-INSERT INTO comment(owner_email, contents, created_date, updated_date) 
-    values('dudu@dudu.du', '이렇게 맛있는 댓글은 어디에 있나?', '2008-01-01 00:00:01', '2008-01-01 00:00:01');
-    
-    
+INSERT INTO postcomment(owner_email, post_id, contents, created_date, updated_date)
+    values('dudu@dudu.du', 1, '이렇게 맛있는 댓글은 어디에 있나?', '2008-01-01 00:00:01', '2008-01-01 00:00:01');
+INSERT INTO postcomment(owner_email, post_id, contents, created_date, updated_date)
+    values('dudu@dudu.du', 2, '이렇게 맛없는 댓글은 어디에 있나?', '2008-01-01 00:00:01', '2008-01-01 00:00:01');
+INSERT INTO postcomment(owner_email, post_id, contents, created_date, updated_date)
+    values('dudu@dudu.du', 2, '이런경우에는 어떻게 해야할까요?', '2008-01-01 00:00:01', '2008-01-01 00:00:01');
+INSERT INTO postcomment(owner_email, post_id, contents, created_date, updated_date)
+    values('dada@dada.da', 2, '이런경우에는 어떻게 해야할까요?', '2008-01-01 00:00:01', '2008-01-01 00:00:01');
+INSERT INTO postcomment(owner_email, post_id, contents, created_date, updated_date)
+    values('dudu@dudu.du', 2, '그냥 집에서 자고싶다.', '2008-01-01 00:00:01', '2008-01-01 00:00:01');
+INSERT INTO postcomment(owner_email, post_id, contents, created_date, updated_date)
+    values('dudu@dudu.du', 2, '오늘은 쉬고싶어', '2008-01-01 00:00:01', '2008-01-01 00:00:01');
+INSERT INTO postcomment(owner_email, post_id, contents, created_date, updated_date)
+    values('dada@dada.da', 2, '넌 안쉬고 싶니?', '2008-01-01 00:00:01', '2008-01-01 00:00:01');
+
+
 INSERT INTO post(owner_email, title, contents, created_date, updated_date) 
     values('dada@dada.da', '먹지 마세요', '피부에 양보하세요', '2008-01-01 00:00:01', '2008-01-01 00:00:01');
 INSERT INTO post(owner_email, title, contents, created_date, updated_date)

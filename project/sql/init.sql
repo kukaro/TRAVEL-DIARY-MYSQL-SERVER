@@ -102,14 +102,21 @@ ALTER TABLE post_picture ADD CONSTRAINT fk_postpicture_picture
 
 ALTER TABLE post_picture ADD UNIQUE uq_postpicture (post_id , picture_id);
 
-CREATE TABLE comment(
+CREATE TABLE postcomment(
     id INT AUTO_INCREMENT PRIMARY KEY,
     owner_email VARCHAR(100) NOT NULL,
+    post_id INT NOT NULL,
     contents VARCHAR(1000) NOT NULL,
     parents_comment_id INT DEFAULT NULL,
     created_date DATETIME NOT NULL,
     updated_date DATETIME NOT NULL
 );
 
-ALTER TABLE comment ADD CONSTRAINT fk_comment_owneremail_user_email
-    FOREIGN KEY (owner_email) REFERENCES user(email);
+ALTER TABLE postcomment ADD CONSTRAINT fk_postcomment_owneremail_user_email
+    FOREIGN KEY (owner_email) REFERENCES user(email) ON DELETE CASCADE;
+
+ALTER TABLE postcomment ADD CONSTRAINT fk_postcomment_postid_post_id
+    FOREIGN KEY (post_id) REFERENCES post(id) ON DELETE CASCADE;
+
+ALTER TABLE postcomment ADD CONSTRAINT fk_postcomment_parentscommentid_postcomment_id
+    FOREIGN KEY (parents_comment_id) REFERENCES postcomment(id) ON DELETE CASCADE;
