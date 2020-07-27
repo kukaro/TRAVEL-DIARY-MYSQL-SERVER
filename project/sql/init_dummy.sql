@@ -72,6 +72,15 @@ INSERT INTO postcomment(owner_email, post_id, contents, created_date, updated_da
     values('dudu@dudu.du', 2, '오늘은 쉬고싶어', '2008-01-01 00:00:01', '2008-01-01 00:00:01');
 INSERT INTO postcomment(owner_email, post_id, contents, created_date, updated_date)
     values('dada@dada.da', 2, '넌 안쉬고 싶니?', '2008-01-01 00:00:01', '2008-01-01 00:00:01');
+INSERT INTO postcomment(owner_email, post_id, contents, created_date, updated_date)
+    values('dada@dada.da', 2, '이거는 긴 댓글이다. 엄청나게 길지는 않지만 그렇다고 짧지는 않은 적당히 긴 댓글이기 때문에 테스트 하는데 도움이 될것 같은 댓글이다.', '2008-01-01 00:00:01', '2008-01-01 00:00:01');
+INSERT INTO postcomment(owner_email, post_id, contents, created_date, updated_date)
+    values('dudu@dudu.du', 2, '이거는 긴 댓글이다. 엄청나게 길지는 않지만 그렇다고 짧지는 않은 적당히 긴 댓글이기 때문에 테스트 하는데 도움이 될것 같은 댓글이다.', '2008-01-01 00:00:01', '2008-01-01 00:00:01');
+INSERT INTO postcomment(owner_email, post_id, parents_comment_id,  contents, created_date, updated_date)
+    values('dada@dada.da', 2, 3, '부모가 있는 너희들의 대댓글', '2008-01-01 00:00:01', '2008-01-01 00:00:01');
+INSERT INTO postcomment(owner_email ,post_id, parents_comment_id,  contents, created_date, updated_date)
+    values('dudu@dudu.du', 2, 4, '부모가 있는 우리들의 대댓글 길지는 않지만 그렇다고 짧지는 않은 적당히 긴 댓글이기 때문에 테스트 하는데 도움이 될것 같은 댓글이다.', '2008-01-01 00:00:01', '2008-01-01 00:00:01');
+
 
 
 INSERT INTO post(owner_email, title, contents, created_date, updated_date) 
