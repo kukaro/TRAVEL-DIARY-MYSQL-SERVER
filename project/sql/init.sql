@@ -10,6 +10,7 @@ CREATE TABLE user(
     age INT NOT NULL,
     birth_date DATETIME NOT NULL,
     password VARCHAR(100) NOT NULL,
+    is_hiworks BOOLEAN DEFAULT FALSE,
     created_date DATETIME NOT NULL,
     updated_date DATETIME NOT NULL
 );
@@ -120,3 +121,14 @@ ALTER TABLE postcomment ADD CONSTRAINT fk_postcomment_postid_post_id
 
 ALTER TABLE postcomment ADD CONSTRAINT fk_postcomment_parentscommentid_postcomment_id
     FOREIGN KEY (parents_comment_id) REFERENCES postcomment(id) ON DELETE CASCADE;
+
+CREATE TABLE hiworksauth(
+    owner_email VARCHAR(100) NOT NULL,
+    office_no INT NOT NULL,
+    user_no INT PRIMARY KEY,
+    user_id VARCHAR(100) NOT NULL,
+    office_name VARCHAR(100) NOT NULL
+);
+
+ALTER TABLE hiworksauth ADD CONSTRAINT fk_hiworksauth_owneremail_user_email
+    FOREIGN KEY (owner_email) REFERENCES user(email) ON DELETE CASCADE;
