@@ -139,7 +139,7 @@ CREATE TABLE friend(
     id INT AUTO_INCREMENT PRIMARY KEY,
     owner_email VARCHAR(100) NOT NULL,
     friend_email VARCHAR(100) NOT NULL
-)
+);
 
 ALTER TABLE friend ADD CONSTRAINT fk_friend_owneremail_user_email
     FOREIGN KEY (owner_email) REFERENCES user(email) ON DELETE CASCADE;
