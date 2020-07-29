@@ -127,8 +127,22 @@ CREATE TABLE hiworksauth(
     owner_email VARCHAR(100) NOT NULL,
     office_no INT NOT NULL,
     user_id VARCHAR(100) NOT NULL,
-    user_name VARCHAR(100) NOT NULL
+    user_name VARCHAR(100) NOT NULL,
+    access_token VARCHAR(100) DEFAULT NULL,
+    refresh_token VARCHAR(100) DEFAULT NULL
 );
 
 ALTER TABLE hiworksauth ADD CONSTRAINT fk_hiworksauth_owneremail_user_email
     FOREIGN KEY (owner_email) REFERENCES user(email) ON DELETE CASCADE;
+
+CREATE TABLE friend(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    owner_email VARCHAR(100) NOT NULL,
+    friend_email VARCHAR(100) NOT NULL
+)
+
+ALTER TABLE friend ADD CONSTRAINT fk_friend_owneremail_user_email
+    FOREIGN KEY (owner_email) REFERENCES user(email) ON DELETE CASCADE;
+
+ALTER TABLE friend ADD CONSTRAINT fk_friend_friendemail_friend_email
+    FOREIGN KEY (friend_email) REFERENCES user(email) ON DELETE CASCADE;
