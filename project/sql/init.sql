@@ -7,8 +7,8 @@ use td_db;
 CREATE TABLE user(
     email VARCHAR(100) PRIMARY KEY,
     name VARCHAR (100) NOT NULL,
-    age INT NOT NULL,
-    birth_date DATETIME NOT NULL,
+    age INT DEFAULT NULL,
+    birth_date DATETIME DEFAULT NULL,
     password VARCHAR(100) NOT NULL,
     is_hiworks BOOLEAN DEFAULT FALSE,
     created_date DATETIME NOT NULL,
@@ -123,11 +123,11 @@ ALTER TABLE postcomment ADD CONSTRAINT fk_postcomment_parentscommentid_postcomme
     FOREIGN KEY (parents_comment_id) REFERENCES postcomment(id) ON DELETE CASCADE;
 
 CREATE TABLE hiworksauth(
+    user_no INT PRIMARY KEY,
     owner_email VARCHAR(100) NOT NULL,
     office_no INT NOT NULL,
-    user_no INT PRIMARY KEY,
     user_id VARCHAR(100) NOT NULL,
-    office_name VARCHAR(100) NOT NULL
+    user_name VARCHAR(100) NOT NULL
 );
 
 ALTER TABLE hiworksauth ADD CONSTRAINT fk_hiworksauth_owneremail_user_email
