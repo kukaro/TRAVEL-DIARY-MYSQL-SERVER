@@ -5,7 +5,8 @@ CREATE DATABASE td_db;
 use td_db;
 
 CREATE TABLE user(
-    email VARCHAR(100) PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(100) NOT NULL,
     name VARCHAR (100) NOT NULL,
     age INT DEFAULT NULL,
     birth_date DATETIME DEFAULT NULL,
@@ -15,46 +16,48 @@ CREATE TABLE user(
     updated_date DATETIME NOT NULL
 );
 
+ALTER TABLE user ADD UNIQUE uq_user (email);
+
 CREATE TABLE picture(
     id INT AUTO_INCREMENT PRIMARY KEY,
-    owner_email VARCHAR(100) NOT NULL,
+    owner_id INT NOT NULL,
     location VARCHAR(100) NOT NULL,
     path VARCHAR(100) NOT NULL,
     created_date DATETIME NOT NULL,
     updated_date DATETIME NOT NULL
 );
 
-ALTER TABLE picture ADD CONSTRAINT fk_picture_owneremail_user_email 
-    FOREIGN KEY (owner_email) REFERENCES user(email);
+ALTER TABLE picture ADD CONSTRAINT fk_picture_ownerid_user_id 
+    FOREIGN KEY (owner_id) REFERENCES user(id) ON DELETE CASCADE;
 
 CREATE TABLE usergroup(
     id INT PRIMARY KEY,
-    owner_email VARCHAR(100) NOT NULL,
+    owner_id INT NOT NULL,
     name VARCHAR(100) NOT NULL,
     created_date VARCHAR(100) NOT NULL
 );
 
-ALTER TABLE usergroup ADD CONSTRAINT fk_usergroup_owneremail_user_email
-    FOREIGN KEY (owner_email) REFERENCES user(email);
+ALTER TABLE usergroup ADD CONSTRAINT fk_usergroup_ownerid_user_id
+    FOREIGN KEY (owner_id) REFERENCES user(id);
 
 CREATE TABLE usergroup_user(
     id INT PRIMARY KEY,
     usergroup_id INT NOT NULL,
-    user_email varchar(100) NOT NULL
+    member_id INT NOT NULL
 );
 
 ALTER TABLE usergroup_user ADD CONSTRAINT fk_usergroupuser_usergroupid_usergroup_id
     FOREIGN KEY (usergroup_id) REFERENCES usergroup(id);
 
-ALTER TABLE usergroup_user ADD CONSTRAINT fk_usergroupuser_useremail_user_email
-    FOREIGN KEY (user_email) REFERENCES user(email);
+ALTER TABLE usergroup_user ADD CONSTRAINT fk_usergroupuser_useremail_user_id
+    FOREIGN KEY (member_id) REFERENCES user(id);
 
 -- select * from information_schema.table_constraints where constraint_schema = 'td_db';
 
 
 CREATE TABLE post(
     id INT AUTO_INCREMENT PRIMARY KEY,
-    owner_email VARCHAR(100) NOT NULL,
+    owner_id INT NOT NULL,
     title VARCHAR(255) NOT NULL,
     contents TEXT NOT NULL,
     parents_post_id INT DEFAULT NULL,
@@ -62,8 +65,8 @@ CREATE TABLE post(
     updated_date DATETIME NOT NULL
 );
 
-ALTER TABLE post ADD CONSTRAINT fk_post_owneremail_user_email
-    FOREIGN KEY (owner_email) REFERENCES user(email);
+ALTER TABLE post ADD CONSTRAINT fk_post_ownerid_user_id
+    FOREIGN KEY (owner_id) REFERENCES user(id);
 
 CREATE TABLE post_picture(
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -81,7 +84,7 @@ ALTER TABLE post_picture ADD UNIQUE uq_postpicture (post_id , picture_id);
 
 CREATE TABLE postcomment(
     id INT AUTO_INCREMENT PRIMARY KEY,
-    owner_email VARCHAR(100) NOT NULL,
+    owner_id INT NOT NULL,
     post_id INT NOT NULL,
     contents VARCHAR(1000) NOT NULL,
     parents_comment_id INT DEFAULT NULL,
@@ -89,8 +92,8 @@ CREATE TABLE postcomment(
     updated_date DATETIME NOT NULL
 );
 
-ALTER TABLE postcomment ADD CONSTRAINT fk_postcomment_owneremail_user_email
-    FOREIGN KEY (owner_email) REFERENCES user(email) ON DELETE CASCADE;
+ALTER TABLE postcomment ADD CONSTRAINT fk_postcomment_ownerid_user_id
+    FOREIGN KEY (owner_id) REFERENCES user(id) ON DELETE CASCADE;
 
 ALTER TABLE postcomment ADD CONSTRAINT fk_postcomment_postid_post_id
     FOREIGN KEY (post_id) REFERENCES post(id) ON DELETE CASCADE;
@@ -100,7 +103,7 @@ ALTER TABLE postcomment ADD CONSTRAINT fk_postcomment_parentscommentid_postcomme
 
 CREATE TABLE hiworksauth(
     user_no INT PRIMARY KEY,
-    owner_email VARCHAR(100) NOT NULL,
+    owner_id INT NOT NULL,
     office_no INT NOT NULL,
     user_id VARCHAR(100) NOT NULL,
     user_name VARCHAR(100) NOT NULL,
@@ -108,19 +111,19 @@ CREATE TABLE hiworksauth(
     refresh_token VARCHAR(100) DEFAULT NULL
 );
 
-ALTER TABLE hiworksauth ADD CONSTRAINT fk_hiworksauth_owneremail_user_email
-    FOREIGN KEY (owner_email) REFERENCES user(email) ON DELETE CASCADE;
+ALTER TABLE hiworksauth ADD CONSTRAINT fk_hiworksauth_ownerid_user_id
+    FOREIGN KEY (owner_id) REFERENCES user(id) ON DELETE CASCADE;
 
 CREATE TABLE friend(
     id INT AUTO_INCREMENT PRIMARY KEY,
-    owner_email VARCHAR(100) NOT NULL,
-    friend_email VARCHAR(100) NOT NULL
+    owner_id INT NOT NULL,
+    friend_id INT NOT NULL
 );
 
-ALTER TABLE friend ADD CONSTRAINT fk_friend_owneremail_user_email
-    FOREIGN KEY (owner_email) REFERENCES user(email) ON DELETE CASCADE;
+ALTER TABLE friend ADD CONSTRAINT fk_friend_ownerid_user_id
+    FOREIGN KEY (owner_id) REFERENCES user(id) ON DELETE CASCADE;
 
-ALTER TABLE friend ADD CONSTRAINT fk_friend_friendemail_user_email
-    FOREIGN KEY (friend_email) REFERENCES user(email) ON DELETE CASCADE;
+ALTER TABLE friend ADD CONSTRAINT fk_friend_friendid_user_id
+    FOREIGN KEY (friend_id) REFERENCES user(id) ON DELETE CASCADE;
 
-ALTER TABLE friend ADD UNIQUE uq_friend (owner_email , friend_email);
+ALTER TABLE friend ADD UNIQUE uq_friend (owner_id , friend_id);
