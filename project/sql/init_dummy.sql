@@ -90,9 +90,6 @@ INSERT INTO post(owner_email, title, contents, created_date, updated_date)
 INSERT INTO post(owner_email, title, contents, created_date, updated_date)
     VALUES('dada@dada.da', '피자나라 치킨공주', '치킨나라 피자공주', '2008-01-01 00:00:01', '2008-01-01 00:00:01');
 
-INSERT INTO comment(owner_email, contents, created_date, updated_date) 
-    VALUES('dada@dada.da', '놀면서 돈버는 법', '2008-01-01 00:00:01', '2008-01-01 00:00:01');
-    
 INSERT INTO friend(owner_email, friend_email)
     VALUES('dudu@dudu.du', 'dada@dada.da');
 

@@ -51,30 +51,6 @@ ALTER TABLE usergroup_user ADD CONSTRAINT fk_usergroupuser_useremail_user_email
 
 -- select * from information_schema.table_constraints where constraint_schema = 'td_db';
 
-CREATE TABLE picture_user(
-    id INT PRIMARY KEY,
-    picture_id INT NOT NULL,
-    user_email VARCHAR(100) NOT NULL
-);
-
-ALTER TABLE picture_user ADD CONSTRAINT fk_pictureuser_picture
-    FOREIGN KEY (picture_id) REFERENCES picture(id);
-
-ALTER TABLE picture_user ADD CONSTRAINT fk_pictureuser_user
-    FOREIGN KEY (user_email) REFERENCES user(email);
-
-
-CREATE TABLE picture_usergroup(
-    id INT PRIMARY KEY,
-    picture_id INT NOT NULL,
-    usergroup_id INT NOT NULL
-);
-
-ALTER TABLE picture_usergroup ADD CONSTRAINT fk_pictureusergroup_picture
-    FOREIGN KEY (picture_id) REFERENCES picture(id);
-
-ALTER TABLE picture_usergroup ADD CONSTRAINT fk_pictureusergroup_usergroup
-    FOREIGN KEY (usergroup_id) REFERENCES usergroup(id);
 
 CREATE TABLE post(
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -144,5 +120,7 @@ CREATE TABLE friend(
 ALTER TABLE friend ADD CONSTRAINT fk_friend_owneremail_user_email
     FOREIGN KEY (owner_email) REFERENCES user(email) ON DELETE CASCADE;
 
-ALTER TABLE friend ADD CONSTRAINT fk_friend_friendemail_friend_email
+ALTER TABLE friend ADD CONSTRAINT fk_friend_friendemail_user_email
     FOREIGN KEY (friend_email) REFERENCES user(email) ON DELETE CASCADE;
+
+ALTER TABLE friend ADD UNIQUE uq_friend (owner_email , friend_email);
