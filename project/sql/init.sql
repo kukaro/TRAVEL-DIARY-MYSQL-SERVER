@@ -68,6 +68,9 @@ CREATE TABLE post(
 ALTER TABLE post ADD CONSTRAINT fk_post_ownerid_user_id
     FOREIGN KEY (owner_id) REFERENCES user(id);
 
+ALTER TABLE post ADD CONSTRAINT fk_post_parentspostid_post_id
+    FOREIGN KEY (parents_post_id) REFERENCES post(id);
+
 CREATE TABLE post_picture(
     id INT AUTO_INCREMENT PRIMARY KEY,
     post_id INT NOT NULL,
